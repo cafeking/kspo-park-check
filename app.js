@@ -7,6 +7,7 @@ const reported = new Set();
 const selection = {park:"misa", activity:"bike"};
 const formatDay = new Intl.DateTimeFormat("ko-KR",{timeZone:"UTC",month:"long",day:"numeric",weekday:"short"});
 let data;
+let currentQuery=location.search;
 
 function node(tag, content, cls) {
   const el=document.createElement(tag);
@@ -50,26 +51,60 @@ function pending(title,body,key) {
   el.append(evidence(key,"공식 원문 확인"));
   return el;
 }
-function bikeResult(day) {
+function bikeCards(day) {
   const found=data.overrides.filter(x=>x.park===selection.park && x.activity===selection.activity && x.dates.includes(day))
     .sort((a,b)=>b.published.localeCompare(a.published));
   const latest=found[0];
   if (!recent("notices",7) || !["closure","marathon"].every(k=>recent(k,7))) {
-    return pending("자전거 대여 여부 확인 필요","마지막 공지 확인이 오래됐거나 원문을 열 수 없습니다. 방문일의 미사 공지를 확인하세요.","notices");
+    return [pending("자전거 대여 여부 확인 필요","마지막 공지 확인이 오래됐거나 원문을 열 수 없습니다. 방문일의 미사 공지를 확인하세요.","notices")];
   }
   if (latest && found.some(x=>x.published===latest.published && x.status!==latest.status)) {
-    return pending("대여 공지 내용 확인 필요","같은 날 게시된 안내의 적용 내용이 서로 다릅니다.","notices");
+    return [pending("대여 공지 내용 확인 필요","같은 날 게시된 안내의 적용 내용이 서로 다릅니다.","notices")];
   }
   if (latest) {
     const closed=latest.status==="closed";
+    let title="자전거 대여 시작 시각 변경";
+    if (latest.opensAt) {
+      const time=new Date(day+"T"+latest.opensAt+":00Z");
+      const options={timeZone:"UTC",hour:"numeric"};
+      if (time.getUTCMinutes()) options.minute="2-digit";
+      title="자전거 대여는 "+new Intl.DateTimeFormat("ko-KR",options).format(time)+" 이후";
+    }
     const el=card(closed?"lead closed":"lead changed",closed?"휴장 공지 확인":"운영시간 변경",
-      closed?"자전거 대여소 휴장":"자전거 대여는 오후 2시 이후",
-      closed?"이날은 미사경정공원에서 대여 자전거를 빌릴 수 없습니다. 공지가 지정한 시설은 자전거 대여소입니다.":"마라톤으로 대여 시작 시각이 바뀝니다. 해당 날짜의 대여소에 적용되는 공지입니다.");
+      closed?"자전거 대여소 휴장":title,
+      closed?"이날은 자전거 대여와 매표를 쉽니다. 산책을 계획했다면 할 일에서 산책을 고르세요.":"마라톤 행사로 대여소가 늦게 문을 엽니다.");
     el.append(node("p","공지 게시일 "+latest.published),evidence(latest.source,"날짜별 공지 원문"));
-    return el;
+    return closed ? [el] : [el,ticketCard(day)];
   }
   const el=card("lead","확인 필요","이날 대여 여부는 확인이 필요합니다","확인한 변경 공지에 선택한 날짜가 없습니다. 방문 직전 새 공지를 확인하세요.");
   el.append(evidence("notices","최신 공지 확인"));
+  return [el,hoursCard(day)];
+}
+function ticketCard(day) {
+  const rule=data.faq.find(row=>Number.isInteger(row.ticketLeadMinutes));
+  if (!rule || !recent(rule.source,31) || !recent("hours",31)) {
+    const el=pending("매표 마감 시각 확인 필요","대여 시작은 변경 공지에서, 매표 마감은 아래 운영표와 FAQ에서 확인하세요.","hours");
+    el.append(evidence("faq","자주 묻는 질문정보"));
+    return el;
+  }
+  const month=Number(day.slice(5,7)), hours=data.hours;
+  const weekdayEnd=hours.weekday.split("~")[1];
+  const weekendEnd=(hours.longMonths.includes(month)?hours.longWeekend:hours.shortWeekend).split("~")[1];
+  const weekend=[0,6].includes(new Date(day+"T12:00:00Z").getUTCDay());
+  function cutoff(end) {
+    const [h,m]=end.split(":").map(Number);
+    const minutes=h*60+m-rule.ticketLeadMinutes;
+    return String(Math.floor(minutes/60)).padStart(2,"0")+":"+String(minutes%60).padStart(2,"0");
+  }
+  const end=weekend?weekendEnd:weekdayEnd;
+  let title="매표 마감 "+cutoff(end);
+  let body=month+"월 운영표의 종료 시각은 "+end+"입니다.";
+  if (!weekend && weekdayEnd!==weekendEnd) {
+    title="매표 마감은 평일 "+cutoff(weekdayEnd)+", 공휴일 "+cutoff(weekendEnd);
+    body=month+"월 운영표의 종료 시각은 평일 "+weekdayEnd+", 공휴일 "+weekendEnd+"입니다.";
+  }
+  const el=card("","일반 시간표 기준",title,body+" FAQ "+rule.id+"에 따라 종료 "+rule.ticketLeadMinutes+"분 전까지 대여권을 살 수 있습니다.");
+  el.append(evidence("hours","계절별 운영시간 원문"),evidence(rule.source,"매표 마감 FAQ 원문"));
   return el;
 }
 function hoursCard(day) {
@@ -104,7 +139,9 @@ function showResult(day) {
 function faqCard() {
   const list=data.faq.filter(f=>f.park===selection.park && f.activities.includes(selection.activity));
   if (!recent("faq",31)) return pending("기본 이용 안내 확인 필요","FAQ 원본을 다시 확인해야 합니다.","faq");
-  const el=card("","공공데이터 FAQ","기본 이용 안내");
+  const walk=selection.activity==="walk";
+  if (walk) list.sort((a,b)=>a.activities.length-b.activities.length);
+  const el=card("","공공데이터 FAQ",walk && selection.park==="olympic"?"산책로와 화장실 안내":"기본 이용 안내");
   for (const row of list) {
     const entry=node("details",undefined,"faq-line");
     entry.append(node("summary",row.title),node("p",row.body),node("p","원본 질문 "+row.id+" / 등록 "+row.registered),
@@ -121,31 +158,38 @@ function renderResult() {
   const share=q("#visit-link");
   share.hidden=true;
   if (!/^\d{4}-\d{2}-\d{2}$/.test(day)) {
-    q("#selection").textContent="방문 날짜를 입력하세요."; q("#announcement").textContent="방문 날짜가 필요합니다."; return;
+    q("#selection").textContent=parks[selection.park]+" / "+purposes[selection.park][selection.activity]+" / 날짜 미입력";
+    const notice=card("pending","","방문할 날짜를 골라 주세요.");
+    const button=node("button","방문 날짜 입력","date-return");
+    button.type="button";button.addEventListener("click",()=>q("#visit-date").focus());
+    notice.append(button);out.append(notice);
+    q("#announcement").textContent="방문 날짜가 필요합니다.";return;
   }
   const selected=parks[selection.park]+" / "+day.slice(0,4)+"년 "+formatDay.format(new Date(day+"T12:00:00Z"))+" / "+purposes[selection.park][selection.activity];
   q("#selection").textContent=selected;
   if (location.protocol==="https:") {
     const url=new URL(location.pathname,location.origin);
     const link=share.querySelector("a");
-    link.textContent=url.href;
     url.search=new URLSearchParams({park:selection.park,activity:selection.activity,date:day});
     url.hash="result";
     link.href=url.href;
+    link.textContent=url.href;
     link.setAttribute("aria-label",selected+" 공유 주소");
     share.hidden=false;
   }
-  if (selection.park==="olympic") {
+  if (selection.activity==="show") {
     out.append(showResult(day));
     const parking=card("",recent("parking",31)?"교통 안내":"확인 필요","공연장 주변 주차","공식 안내에서 주차장 위치와 이용요금을 확인하세요.");
     parking.append(evidence("parking","공식 주차 안내"));
     out.append(faqCard(),parking);
   } else if (selection.activity==="bike") {
-    out.append(bikeResult(day),hoursCard(day),faqCard());
+    out.append(...bikeCards(day),faqCard());
   } else {
     out.append(faqCard());
-    const n=card("","공원 공지","산책길과 시설 변경 확인","자전거 대여소의 휴장일에는 대여 업무만 쉽니다. 산책길 이용 변경은 공원 공지에서 확인하세요.");
-    n.append(evidence("notices","미사 공지사항")); out.append(n);
+    if (selection.park==="misa") {
+      const n=card("","공원 공지","산책길과 시설 변경 확인","대여소 공지는 자전거 대여에 적용됩니다. 산책로의 공사나 통제 소식은 공원 공지에서 확인하세요.");
+      n.append(evidence("notices","미사 공지사항"));out.append(n);
+    }
   }
   q("#announcement").textContent=selected+". "+out.querySelector("h3").textContent;
 }
@@ -194,18 +238,32 @@ function route() {
   document.querySelectorAll("nav a").forEach(a=>a.hash==="#"+active?a.setAttribute("aria-current","page"):a.removeAttribute("aria-current"));
   if (id==="result") requestAnimationFrame(()=>q("#result").scrollIntoView({block:"start"}));
 }
-async function start() {
+function readSelection() {
   const params=new URLSearchParams(location.search);
-  if (Object.hasOwn(parks,params.get("park"))) selection.park=params.get("park");
+  selection.park=Object.hasOwn(parks,params.get("park"))?params.get("park"):"misa";
   const opts=purposes[selection.park];selection.activity=Object.hasOwn(opts,params.get("activity"))?params.get("activity"):Object.keys(opts)[0];
-  q("#visit-date").value=params.get("date")||today();
-  if (!q("#visit-date").value) q("#visit-date").value=today();
+  q("#visit-date").value=params.has("date")?params.get("date"):today();
   document.querySelector('input[name="park"][value="'+selection.park+'"]').checked=true;
-  activities();route();
+  activities();
+}
+async function start() {
+  readSelection();route();
   document.addEventListener("change",e=>{
     if (e.target.name==="park") {selection.park=e.target.value;selection.activity=Object.keys(purposes[selection.park])[0];activities();}
     if (e.target.name==="activity") selection.activity=e.target.value;
-    if (["park","activity"].includes(e.target.name) || e.target.id==="visit-date") renderResult();
+    if (["park","activity"].includes(e.target.name) || e.target.id==="visit-date") {
+      if (location.protocol==="https:" || location.protocol==="http:") {
+        const url=new URL(location.href);
+        url.search=new URLSearchParams({...selection,date:q("#visit-date").value});
+        history.replaceState(null,"",url);currentQuery=url.search;
+      }
+      renderResult();
+    }
+  });
+  window.addEventListener("popstate",()=>{
+    if (location.search!==currentQuery) {
+      currentQuery=location.search;readSelection();renderResult();
+    }
   });
   window.addEventListener("hashchange",route);
   try {

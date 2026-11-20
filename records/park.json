@@ -213,7 +213,8 @@
       "category": "미사경정공원",
       "registered": "2024-07-09",
       "source": "faq",
-      "dataset": "15089962"
+      "dataset": "15089962",
+      "ticketLeadMinutes": 60
     },
     {
       "id": "18992",
@@ -380,6 +381,7 @@
         "2026-11-28"
       ],
       "status": "late",
+      "opensAt": "14:00",
       "source": "marathon",
       "published": "2026-11-18"
     },

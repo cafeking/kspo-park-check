@@ -1,0 +1,533 @@
+{
+  "org": "한국체육산업개발주식회사",
+  "sources": {
+    "faq": {
+      "url": "https://www.data.go.kr/data/15089962/fileData.do",
+      "ok": true,
+      "http": 200,
+      "checked": "2026-11-20T10:21:59+09:00",
+      "name": "자주 묻는 질문정보",
+      "org": "한국체육산업개발주식회사",
+      "acquired": "2026-11-20T10:19:06+09:00",
+      "sha256": "a016fcf592b81f852bf2c96554007f8dcf8b971c91156714c7f1c4f9f2c710cc"
+    },
+    "closure": {
+      "url": "https://www.ksponco.or.kr/boatracepark/board.es?act=view&bid=0040&list_no=85668&mid=b40401000000",
+      "ok": true,
+      "http": 200,
+      "checked": "2026-11-20T10:21:59+09:00",
+      "name": "자전거대여 휴장 알림",
+      "org": "한국체육산업개발주식회사",
+      "acquired": "2026-11-20T10:15:54+09:00",
+      "sha256": "02c5c88c99496af1601ddaf36f61bd9a1232afb2c030ff35584cb465affc022c"
+    },
+    "marathon": {
+      "url": "https://www.ksponco.or.kr/boatracepark/board.es?act=view&bid=0040&list_no=85871&mid=b40401000000",
+      "ok": true,
+      "http": 200,
+      "checked": "2026-11-20T10:21:59+09:00",
+      "name": "마라톤 행사에 따른 자전거대여소 운영 안내",
+      "org": "한국체육산업개발주식회사",
+      "acquired": "2026-11-20T10:15:54+09:00",
+      "sha256": "6577d367a2d6d36bd2eff881aae89e2732e2fcaa8d83bb96fa69b18f615b5620"
+    },
+    "notices": {
+      "url": "https://www.ksponco.or.kr/boatracepark/board.es?bid=0040&mid=b40401000000",
+      "ok": true,
+      "http": 200,
+      "checked": "2026-11-20T10:21:59+09:00",
+      "name": "미사경정공원 공지사항",
+      "org": "한국체육산업개발주식회사",
+      "acquired": "2026-11-20T10:15:55+09:00",
+      "sha256": "07993aa479617c69435555eda601a81b80c747f2012fec56642e98e85d96792c"
+    },
+    "hours": {
+      "url": "https://www.ksponco.or.kr/menu.es?mid=b40202010000",
+      "ok": true,
+      "http": 200,
+      "checked": "2026-11-20T10:21:59+09:00",
+      "name": "미사 자전거 이용시간",
+      "org": "한국체육산업개발주식회사",
+      "acquired": "2026-11-20T10:15:54+09:00",
+      "sha256": "061343b5d6e998cfc9195503b3758c3c55b900b8cfb2bf7531c728e391fc8b86"
+    },
+    "schedule": {
+      "url": "https://www.ksponco.or.kr/olympicpark/eventInfo/eventInfoList?mid=a20301010100",
+      "ok": true,
+      "http": 200,
+      "checked": "2026-11-20T10:21:59+09:00",
+      "name": "올림픽공원 공식 공연 일정표",
+      "org": "한국체육산업개발주식회사",
+      "acquired": "2026-11-20T10:16:59+09:00",
+      "sha256": "7cede42abb3a6785a0099fc1015131ada31f9356e78470b364c786569ab8a5fa"
+    },
+    "parking": {
+      "url": "https://www.ksponco.or.kr/olympicpark/parkingInfo?mid=a20111000000",
+      "ok": true,
+      "http": 200,
+      "checked": "2026-11-20T10:21:59+09:00",
+      "name": "올림픽공원 교통 및 주차 안내",
+      "org": "한국체육산업개발주식회사",
+      "acquired": "2026-11-20T10:16:59+09:00",
+      "sha256": "f3198af492f5855c7911f567de10159d240bb4340f3fce97239885ee49ff613f"
+    },
+    "d1": {
+      "url": "https://www.data.go.kr/data/3037877/openapi.do",
+      "ok": true,
+      "http": 200,
+      "checked": "2026-11-20T10:21:59+09:00",
+      "name": "올림픽공원 공연정보",
+      "org": "한국체육산업개발주식회사",
+      "acquired": "2026-11-20T10:15:54+09:00",
+      "sha256": "bc9e9e5f2ea10a487304aecfa25b41556482f085f70e3a9aed1d44f6c8c34b39"
+    },
+    "provider": {
+      "url": "https://www.culture.go.kr/data/openapi/openapiView.do?id=96",
+      "ok": true,
+      "http": 200,
+      "checked": "2026-11-20T10:21:59+09:00",
+      "name": "문화공공데이터광장 제공처",
+      "org": "한국문화정보원",
+      "acquired": "2026-11-20T10:17:54+09:00",
+      "sha256": "24b309c8655b0a06ecadd2e11a872d843e953c9639d0511c5ffecaac4200ad20"
+    },
+    "event-5136": {
+      "url": "https://www.ksponco.or.kr/olympicpark/eventInfo/eventInfoView.es?mid=a20301010100&evtSeq=5136",
+      "ok": true,
+      "http": 200,
+      "checked": "2026-11-20T10:21:59+09:00",
+      "name": "최현우 30주년 기념 공연 - LEGACY",
+      "org": "한국체육산업개발주식회사",
+      "acquired": "2026-11-20T10:16:59+09:00"
+    },
+    "event-5159": {
+      "url": "https://www.ksponco.or.kr/olympicpark/eventInfo/eventInfoView.es?mid=a20301010100&evtSeq=5159",
+      "ok": true,
+      "http": 200,
+      "checked": "2026-11-20T10:21:59+09:00",
+      "name": "[서울] 2026 조용필 & 위대한탄생 콘서트",
+      "org": "한국체육산업개발주식회사",
+      "acquired": "2026-11-20T10:16:59+09:00"
+    },
+    "event-5168": {
+      "url": "https://www.ksponco.or.kr/olympicpark/eventInfo/eventInfoView.es?mid=a20301010100&evtSeq=5168",
+      "ok": true,
+      "http": 200,
+      "checked": "2026-11-20T10:21:59+09:00",
+      "name": "2026 다이나믹 듀오 단독 콘서트 \"가끔씩 오래 보자\" - 서울",
+      "org": "한국체육산업개발주식회사",
+      "acquired": "2026-11-20T10:16:59+09:00"
+    },
+    "event-5158": {
+      "url": "https://www.ksponco.or.kr/olympicpark/eventInfo/eventInfoView.es?mid=a20301010100&evtSeq=5158",
+      "ok": true,
+      "http": 200,
+      "checked": "2026-11-20T10:21:59+09:00",
+      "name": "2026-27 로이킴 LIVE TOUR [R:O:Y] in SEOUL",
+      "org": "한국체육산업개발주식회사",
+      "acquired": "2026-11-20T10:16:59+09:00"
+    },
+    "event-5167": {
+      "url": "https://www.ksponco.or.kr/olympicpark/eventInfo/eventInfoView.es?mid=a20301010100&evtSeq=5167",
+      "ok": true,
+      "http": 200,
+      "checked": "2026-11-20T10:22:00+09:00",
+      "name": "2026 CRAVITY CONCERT SONOROUS in Seoul",
+      "org": "한국체육산업개발주식회사",
+      "acquired": "2026-11-20T10:16:59+09:00"
+    },
+    "event-5165": {
+      "url": "https://www.ksponco.or.kr/olympicpark/eventInfo/eventInfoView.es?mid=a20301010100&evtSeq=5165",
+      "ok": true,
+      "http": 200,
+      "checked": "2026-11-20T10:22:00+09:00",
+      "name": "TOMORROW X TOGETHER WORLD TOUR STEAL THE WIND IN SEOUL",
+      "org": "한국체육산업개발주식회사",
+      "acquired": "2026-11-20T10:16:59+09:00"
+    },
+    "event-5169": {
+      "url": "https://www.ksponco.or.kr/olympicpark/eventInfo/eventInfoView.es?mid=a20301010100&evtSeq=5169",
+      "ok": true,
+      "http": 200,
+      "checked": "2026-11-20T10:22:00+09:00",
+      "name": "코리아발레스타즈 호두까기인형",
+      "org": "한국체육산업개발주식회사",
+      "acquired": "2026-11-20T10:16:59+09:00"
+    },
+    "event-5166": {
+      "url": "https://www.ksponco.or.kr/olympicpark/eventInfo/eventInfoView.es?mid=a20301010100&evtSeq=5166",
+      "ok": true,
+      "http": 200,
+      "checked": "2026-11-20T10:22:00+09:00",
+      "name": "2026 박재정 콘서트 - 기록",
+      "org": "한국체육산업개발주식회사",
+      "acquired": "2026-11-20T10:16:59+09:00"
+    },
+    "event-5157": {
+      "url": "https://www.ksponco.or.kr/olympicpark/eventInfo/eventInfoView.es?mid=a20301010100&evtSeq=5157",
+      "ok": true,
+      "http": 200,
+      "checked": "2026-11-20T10:22:00+09:00",
+      "name": "EXO PLANET #6 - EXhOrizon [dot] -",
+      "org": "한국체육산업개발주식회사",
+      "acquired": "2026-11-20T10:16:59+09:00"
+    },
+    "event-5164": {
+      "url": "https://www.ksponco.or.kr/olympicpark/eventInfo/eventInfoView.es?mid=a20301010100&evtSeq=5164",
+      "ok": true,
+      "http": 200,
+      "checked": "2026-11-20T10:22:00+09:00",
+      "name": "2026 WOODZ WORLD TOUR Archive. 1 : Completed",
+      "org": "한국체육산업개발주식회사",
+      "acquired": "2026-11-20T10:16:59+09:00"
+    },
+    "event-5156": {
+      "url": "https://www.ksponco.or.kr/olympicpark/eventInfo/eventInfoView.es?mid=a20301010100&evtSeq=5156",
+      "ok": true,
+      "http": 200,
+      "checked": "2026-11-20T10:22:00+09:00",
+      "name": "2026 ONEW CONCERT [ONEW THE LIVE : Q] IN SEOUL",
+      "org": "한국체육산업개발주식회사",
+      "acquired": "2026-11-20T10:16:59+09:00"
+    },
+    "event-5155": {
+      "url": "https://www.ksponco.or.kr/olympicpark/eventInfo/eventInfoView.es?mid=a20301010100&evtSeq=5155",
+      "ok": true,
+      "http": 200,
+      "checked": "2026-11-20T10:22:00+09:00",
+      "name": "2026 심규선 단독 콘서트[SANCTUARY]",
+      "org": "한국체육산업개발주식회사",
+      "acquired": "2026-11-20T10:16:59+09:00"
+    }
+  },
+  "faq": [
+    {
+      "id": "19025",
+      "park": "misa",
+      "activities": [
+        "bike"
+      ],
+      "title": "자전거 매표는 언제 끝나나요?",
+      "body": "대여권은 운영 종료 한 시간 전까지 판매합니다. 날짜별 변경 공지가 있으면 공지를 먼저 확인하세요.",
+      "original": "미사경정공원에서 자전거 타려고 하는데 몇 시까지 가야 하나요",
+      "category": "미사경정공원",
+      "registered": "2024-07-09",
+      "source": "faq",
+      "dataset": "15089962"
+    },
+    {
+      "id": "18992",
+      "park": "misa",
+      "activities": [
+        "bike",
+        "walk"
+      ],
+      "title": "공원 입장료가 있나요?",
+      "body": "미사경정공원은 입장료가 없습니다. 차를 가져가면 주차요금을 따로 냅니다.",
+      "original": "미사경정공원 입장료는 있나요",
+      "category": "미사경정공원",
+      "registered": "2024-07-09",
+      "source": "faq",
+      "dataset": "15089962"
+    },
+    {
+      "id": "18994",
+      "park": "misa",
+      "activities": [
+        "walk"
+      ],
+      "title": "잔디밭에 돗자리를 펴도 되나요?",
+      "body": "나무 그늘에 돗자리를 펼 수 있습니다. 잔디에 기둥을 박는 텐트와 그늘막은 설치할 수 없습니다.",
+      "original": "미사경정공원 잔디밭에 텐트를 쳐도 되나요",
+      "category": "미사경정공원",
+      "registered": "2024-07-09",
+      "source": "faq",
+      "dataset": "15089962"
+    },
+    {
+      "id": "19027",
+      "park": "misa",
+      "activities": [
+        "walk"
+      ],
+      "title": "아이들과 소풍을 가려면 예약해야 하나요?",
+      "body": "일반 소풍은 장소를 예약할 필요가 없습니다. 단체 체육행사로 운동장을 쓰려면 시설 대관을 신청하세요.",
+      "original": "유치원에서 약 20명의 아이들을 데리고 소풍을 가려고 하는데 예약을 해야 하나요",
+      "category": "미사경정공원",
+      "registered": "2024-07-09",
+      "source": "faq",
+      "dataset": "15089962"
+    },
+    {
+      "id": "18989",
+      "park": "olympic",
+      "activities": [
+        "show",
+        "walk"
+      ],
+      "title": "어느 지하철역에서 내리나요?",
+      "body": "5호선과 9호선 올림픽공원역 3번 출구, 8호선 몽촌토성역 1번 출구에서 공원으로 갈 수 있습니다.",
+      "original": "올림픽공원 이용시 대중교통을 알고 싶습니다",
+      "category": "한국체육산업개발",
+      "registered": "2024-07-09",
+      "source": "faq",
+      "dataset": "15089962"
+    },
+    {
+      "id": "19021",
+      "park": "olympic",
+      "activities": [
+        "show"
+      ],
+      "title": "공연장 가까운 주차장은 어디인가요?",
+      "body": "공식 교통 및 주차 안내에서 보러 갈 공연장의 위치와 가까운 주차장을 찾을 수 있습니다.",
+      "original": "주차 후 공연장까지 오는 방법은 어떻게 되나요",
+      "category": "한국체육산업개발",
+      "registered": "2024-07-09",
+      "source": "faq",
+      "dataset": "15089962"
+    },
+    {
+      "id": "18987",
+      "park": "olympic",
+      "activities": [
+        "show"
+      ],
+      "title": "공연 뒤 물건을 잃어버렸다면?",
+      "body": "올림픽공원 홈페이지 유실물센터에서 찾거나 평화의광장과 만남의광장 안내센터에 문의하세요.",
+      "original": "공연을 관람 후 소지품을 분실하였을 경우",
+      "category": "한국체육산업개발",
+      "registered": "2024-07-09",
+      "source": "faq",
+      "dataset": "15089962"
+    },
+    {
+      "id": "18984",
+      "park": "olympic",
+      "activities": [
+        "walk"
+      ],
+      "title": "토성 산책로에 자전거가 다니나요?",
+      "body": "몽촌토성 안쪽 산책로는 자전거와 인라인 통행을 제한합니다.",
+      "original": "올림픽공원내 자전거 이용에 대하여",
+      "category": "올림픽공원",
+      "registered": "2024-07-09",
+      "source": "faq",
+      "dataset": "15089962"
+    },
+    {
+      "id": "18998",
+      "park": "olympic",
+      "activities": [
+        "walk"
+      ],
+      "title": "야외 화장실은 어디서 찾나요?",
+      "body": "평화의광장, 만남의광장, 몽촌토성, 체육관 주변에 있습니다. 출입구 초소에서 안내도를 받을 수 있습니다.",
+      "original": "공원 내 화장실은 어디 있습니까",
+      "category": "한국체육산업개발",
+      "registered": "2022-09-15",
+      "source": "faq",
+      "dataset": "15089962"
+    }
+  ],
+  "overrides": [
+    {
+      "park": "misa",
+      "activity": "bike",
+      "facility": "자전거 대여소",
+      "dates": [
+        "2026-11-09",
+        "2026-11-10",
+        "2026-11-16",
+        "2026-11-17",
+        "2026-11-23",
+        "2026-11-24",
+        "2026-11-30",
+        "2026-12-01",
+        "2026-12-07",
+        "2026-12-08",
+        "2026-12-14",
+        "2026-12-15",
+        "2026-12-21",
+        "2026-12-22",
+        "2026-12-28",
+        "2026-12-29",
+        "2027-01-04",
+        "2027-01-05",
+        "2027-01-11",
+        "2027-01-12",
+        "2027-01-18",
+        "2027-01-19",
+        "2027-01-25",
+        "2027-01-26",
+        "2027-02-01",
+        "2027-02-02",
+        "2027-02-15",
+        "2027-02-16",
+        "2027-02-22",
+        "2027-02-23"
+      ],
+      "status": "closed",
+      "source": "closure",
+      "published": "2026-10-30"
+    },
+    {
+      "park": "misa",
+      "activity": "bike",
+      "facility": "자전거 대여소",
+      "dates": [
+        "2026-11-21",
+        "2026-11-28"
+      ],
+      "status": "late",
+      "source": "marathon",
+      "published": "2026-11-18"
+    },
+    {
+      "park": "misa",
+      "activity": "bike",
+      "facility": "자전거 대여소",
+      "dates": [
+        "2026-12-12",
+        "2026-12-13"
+      ],
+      "status": "closed",
+      "source": "marathon",
+      "published": "2026-11-18"
+    }
+  ],
+  "events": [
+    {
+      "id": "5136",
+      "title": "최현우 30주년 기념 공연 - LEGACY",
+      "start": "2026-11-28",
+      "end": "2027-01-03",
+      "venue": "올림픽공원 우리금융아트홀",
+      "source": "event-5136"
+    },
+    {
+      "id": "5159",
+      "title": "[서울] 2026 조용필 & 위대한탄생 콘서트",
+      "start": "2026-11-27",
+      "end": "2026-11-29",
+      "venue": "KSPO DOME",
+      "source": "event-5159"
+    },
+    {
+      "id": "5168",
+      "title": "2026 다이나믹 듀오 단독 콘서트 \"가끔씩 오래 보자\" - 서울",
+      "start": "2026-11-27",
+      "end": "2026-11-29",
+      "venue": "올림픽홀",
+      "source": "event-5168"
+    },
+    {
+      "id": "5158",
+      "title": "2026-27 로이킴 LIVE TOUR [R:O:Y] in SEOUL",
+      "start": "2026-11-21",
+      "end": "2026-11-22",
+      "venue": "KSPO DOME",
+      "source": "event-5158"
+    },
+    {
+      "id": "5167",
+      "title": "2026 CRAVITY CONCERT SONOROUS in Seoul",
+      "start": "2026-11-14",
+      "end": "2026-11-15",
+      "venue": "올림픽홀",
+      "source": "event-5167"
+    },
+    {
+      "id": "5165",
+      "title": "TOMORROW X TOGETHER WORLD TOUR STEAL THE WIND IN SEOUL",
+      "start": "2026-11-13",
+      "end": "2026-11-15",
+      "venue": "KSPO DOME",
+      "source": "event-5165"
+    },
+    {
+      "id": "5169",
+      "title": "코리아발레스타즈 호두까기인형",
+      "start": "2026-11-07",
+      "end": "2026-11-08",
+      "venue": "올림픽공원 우리금융아트홀",
+      "source": "event-5169"
+    },
+    {
+      "id": "5166",
+      "title": "2026 박재정 콘서트 - 기록",
+      "start": "2026-11-07",
+      "end": "2026-11-08",
+      "venue": "올림픽홀",
+      "source": "event-5166"
+    },
+    {
+      "id": "5157",
+      "title": "EXO PLANET #6 - EXhOrizon [dot] -",
+      "start": "2026-11-06",
+      "end": "2026-11-08",
+      "venue": "KSPO DOME",
+      "source": "event-5157"
+    },
+    {
+      "id": "5164",
+      "title": "2026 WOODZ WORLD TOUR Archive. 1 : Completed",
+      "start": "2026-10-31",
+      "end": "2026-11-01",
+      "venue": "KSPO DOME",
+      "source": "event-5164"
+    },
+    {
+      "id": "5156",
+      "title": "2026 ONEW CONCERT [ONEW THE LIVE : Q] IN SEOUL",
+      "start": "2026-10-30",
+      "end": "2026-11-01",
+      "venue": "올림픽홀",
+      "source": "event-5156"
+    },
+    {
+      "id": "5155",
+      "title": "2026 심규선 단독 콘서트[SANCTUARY]",
+      "start": "2026-10-24",
+      "end": "2026-11-01",
+      "venue": "올림픽공원 우리금융아트홀",
+      "source": "event-5155"
+    }
+  ],
+  "hours": {
+    "longMonths": [
+      4,
+      5,
+      6,
+      9,
+      10
+    ],
+    "weekday": "09:00~18:00",
+    "longWeekend": "09:00~19:00",
+    "shortWeekend": "09:00~18:00"
+  },
+  "meta": {
+    "faqId": "15089962",
+    "faqAsOf": "2026-08-19",
+    "faqRows": 49,
+    "faqColumns": [
+      "순번",
+      "일련번호",
+      "카테고리",
+      "제목",
+      "내용",
+      "등록일"
+    ],
+    "faqRegistered": [
+      "2016-05-03",
+      "2026-08-19"
+    ],
+    "eventCoverage": [
+      "2026-11-01",
+      "2026-11-30"
+    ],
+    "eventSource": "schedule",
+    "performanceApi": "unavailable",
+    "apiId": "3037877"
+  }
+}
